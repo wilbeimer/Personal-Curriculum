@@ -12,12 +12,25 @@ def init_db():
                 color TEXT
         )
     """)
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS assignments (
+                id TEXT PRIMARY KEY,
+                courseId TEXT NOT NULL,
+                title TEXT NOT NULL,
+                type TEXT NOT NULL,
+                dueDate TEXT,
+                points REAL,
+                content TEXT,
+                rubric TEXT,
+                FOREIGN KEY (courseId) REFERENCES courses(id)
+        )
+    """)
     conn.commit()
     conn.close()
 
 
 def get_db():
-    conn = sqlite3.connect('curriculum.db')
+    conn = sqlite3.connect('curriculum.db', check_same_thread=False)
     conn.row_factory = sqlite3.Row
     try:
         yield conn
