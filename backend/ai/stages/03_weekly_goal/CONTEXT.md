@@ -5,7 +5,7 @@ version: 0.1
 
 ## Inputs
 - 01_course_description (description, domain, subdomains, prerequisites)
-- 02_course_length (weeks, hours_per_week, reasoning)
+- 02_course_length (weeks, hours per week, reasoning)
 
 ## Process
 For each week in the course, create a clear learning goal and a list of topics to cover that week.

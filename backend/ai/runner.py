@@ -1,5 +1,6 @@
 import json
 import sys
+import yaml
 from pathlib import Path
 
 
@@ -17,7 +18,9 @@ def run_stage(stage_name: str, user_inputs: dict = {}) -> dict:
     output_path.mkdir(exist_ok=True)
 
     # Read stage contract (Layer 2)
-    context = (stage_path / "CONTEXT.md").read_text()
+    context_raw = (stage_path / "CONTEXT.md").read_text()
+    _, frontmatter, context = context_raw.split("---", 2)
+    meta = yaml.safe_load(frontmatter)
 
     # Read global identity (Layer 0)
     identity_md = (STAGES_DIR.parent / "IDENTITY.md").read_text()
@@ -69,19 +72,46 @@ def run_stage(stage_name: str, user_inputs: dict = {}) -> dict:
 {json.dumps(previous_outputs, indent=2)}
 """
 
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[
-            {"role": "system", "content": "You are an expert curriculum designer. Return only valid JSON, no markdown, no explanation."},
-            {"role": "user", "content": full_prompt}
-        ]
-    )
+    loop_over = meta.get("loop_over")
+    if loop_over:
+        # Find the key in previous outputs
+        items = None
+        for stage_output in previous_outputs.values():
+            if loop_over in stage_output:
+                items = stage_output[loop_over]
+                break
 
-    content = response.choices[0].message.content
-    if content is None:
-        raise ValueError("No response from AI")
+        results = []
+        for item in items:
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[
+                    {"role": "system", "content": "You are an expert curriculum designer. Return only valid JSON, no markdown, no explanation."},
+                    {"role": "user", "content": full_prompt + f"\n\n## Current Item\n{json.dumps(item, indent=2)}"}
+                ]
+            )
+            content = response.choices[0].message.content
+            if content is None:
+                raise ValueError("No response from AI")
 
-    result = json.loads(content)
+            results.append(json.loads(content))
+
+        result = {loop_over: results}
+
+    else:
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "You are an expert curriculum designer. Return only valid JSON, no markdown, no explanation."},
+                {"role": "user", "content": full_prompt}
+            ]
+        )
+
+        content = response.choices[0].message.content
+        if content is None:
+            raise ValueError("No response from AI")
+
+        result = json.loads(content)
 
     # Save output to disk (Layer 4 for next stage)
     (output_path / "result.json").write_text(json.dumps(result, indent=2))
@@ -96,7 +126,10 @@ if __name__ == "__main__":
 
     result_02 = run_stage("02_course_length")
     print("Stage 02:", result_02)
-    """
 
     result_03 = run_stage("03_weekly_goal")
     print("Stage 03:", result_03)
+    """
+
+    result_04 = run_stage("04_assignments")
+    print("Stage 04:", result_04)
