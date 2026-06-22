@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 import uuid
 from backend.database import init_db, get_db
 from backend.models import CourseCreate, Course, Assignment, AssignmentCreate, Submission, SubmissionCreate
-from backend.ai.curriculum import test_ai_response
 import os
 
 
@@ -113,7 +112,3 @@ def patch_submission():
 
 
 # AI
-@app.post("/ai")
-def generate():
-    result = test_ai_response()
-    return {"response": result}
