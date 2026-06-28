@@ -2,6 +2,7 @@ import json
 import sys
 import yaml
 from pathlib import Path
+import time
 
 
 if __name__ == "__main__":
@@ -12,43 +13,89 @@ from backend.ai.client import client
 STAGES_DIR = Path(__file__).parent / "stages"
 
 
+def load_previous_outputs(stage_name: str, depends_on: list | None) -> dict:
+    previous_outputs = {}
+    if depends_on is None:
+        for prev_stage in sorted(STAGES_DIR.iterdir()):
+            if prev_stage.name >= stage_name:
+                break
+            prev_output = prev_stage / "output" / "result.json"
+            if prev_output.exists():
+                previous_outputs[prev_stage.name] = json.loads(prev_output.read_text())
+    else:
+        for dep in depends_on:
+            prev_output = STAGES_DIR / dep / "output" / "result.json"
+            if prev_output.exists():
+                previous_outputs[dep] = json.loads(prev_output.read_text())
+    return previous_outputs
+
+
+def parse_json_response(content: str) -> dict:
+    content = content.strip()
+    if content.startswith("```"):
+        content = content.split("```")[1]
+        if content.startswith("json"):
+            content = content[4:]
+        content = content.strip()
+    return json.loads(content, strict=False)
+
+
+def call_model(prompt: str) -> str:
+    response = client.chat.completions.create(
+        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        messages=[
+            {"role": "system", "content": "You are an expert curriculum designer. Return only valid JSON, no markdown, no explanation."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    content = response.choices[0].message.content
+    if content is None:
+        raise ValueError("No response from AI")
+    return content
+
+
+def run_loop_stage(loop_over: str, full_prompt: str, previous_outputs: dict, merge_item: bool) -> dict:
+    items = None
+    for stage_output in previous_outputs.values():
+        if loop_over in stage_output:
+            items = stage_output[loop_over]
+            break
+
+    results = []
+    for item in items:
+        content = call_model(full_prompt + f"\n\n## Current Item\n{json.dumps(item, indent=2)}")
+        result = parse_json_response(content)
+        if merge_item:
+            result = {**item, **result}
+        results.append(result)
+        time.sleep(2)
+
+    return {loop_over: results}
+
+
 def run_stage(stage_name: str, user_inputs: dict = {}) -> dict:
     stage_path = STAGES_DIR / stage_name
     output_path = stage_path / "output"
     output_path.mkdir(exist_ok=True)
 
-    # Read stage contract (Layer 2)
     context_raw = (stage_path / "CONTEXT.md").read_text()
     _, frontmatter, context = context_raw.split("---", 2)
     meta = yaml.safe_load(frontmatter)
 
-    # Read global identity (Layer 0)
     identity_md = (STAGES_DIR.parent / "IDENTITY.md").read_text()
-
-    # Read workspace routing (Layer 1)
     workspace_context = (STAGES_DIR.parent / "CONTEXT.md").read_text()
 
-    # Read reference material (Layer 3)
     references = ""
     ref_path = stage_path / "references"
     if ref_path.exists():
         for f in ref_path.glob("*.md"):
             references += f"\n\n# {f.stem}\n{f.read_text()}"
 
-    # Read previous stage outputs (Layer 4)
-    previous_outputs = {}
-    for prev_stage in sorted(STAGES_DIR.iterdir()):
-        if prev_stage.name >= stage_name:
-            break
-        prev_output = prev_stage / "output" / "result.json"
-        if prev_output.exists():
-            previous_outputs[prev_stage.name] = json.loads(prev_output.read_text())
+    previous_outputs = load_previous_outputs(stage_name, meta.get("depends_on"))
 
-    # Substitute user inputs into context
     for key, value in user_inputs.items():
         context = context.replace(f"{{{key}}}", str(value))
 
-    # Build full prompt
     full_prompt = f"""
 {identity_md}
 
@@ -74,85 +121,32 @@ def run_stage(stage_name: str, user_inputs: dict = {}) -> dict:
 
     loop_over = meta.get("loop_over")
     if loop_over:
-        # Find the key in previous outputs
-        items = None
-        for stage_output in previous_outputs.values():
-            if loop_over in stage_output:
-                items = stage_output[loop_over]
-                break
-
-        results = []
-        for item in items:
-            response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
-                messages=[
-                    {"role": "system", "content": "You are an expert curriculum designer. Return only valid JSON, no markdown, no explanation."},
-                    {"role": "user", "content": full_prompt + f"\n\n## Current Item\n{json.dumps(item, indent=2)}"}
-                ]
-            )
-            content = response.choices[0].message.content
-
-            if content is None:
-                raise ValueError("No response from AI")
-
-            content = content.strip()
-            if content.startswith("```"):
-                content = content.split("```")[1]
-                if content.startswith("json"):
-                    content = content[4:]
-                content = content.strip()
-
-            content = json.loads(content)
-            if meta.get("merge_item"):
-                content = {**item, **content}
-
-            results.append(content)
-
-        result = {loop_over: results}
-
+        result = run_loop_stage(loop_over, full_prompt, previous_outputs, meta.get("merge_item", False))
     else:
-        response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[
-                {"role": "system", "content": "You are an expert curriculum designer. Return only valid JSON, no markdown, no explanation."},
-                {"role": "user", "content": full_prompt}
-            ]
-        )
+        content = call_model(full_prompt)
+        result = parse_json_response(content)
 
-        content = response.choices[0].message.content
-        if content is None:
-            raise ValueError("No response from AI")
-
-        content = content.strip()
-        if content.startswith("```"):
-            content = content.split("```")[1]
-            if content.startswith("json"):
-                content = content[4:]
-            content = content.strip()
-
-        result = json.loads(content)
-
-    # Save output to disk (Layer 4 for next stage)
     (output_path / "result.json").write_text(json.dumps(result, indent=2))
-
     return result
 
 
 if __name__ == "__main__":
-    """
     result_01 = run_stage("01_course_description", {"course_name": "Introduction to Natural Language Processing"})
     print("Stage 01:", result_01)
+    print()
 
     result_02 = run_stage("02_course_length")
     print("Stage 02:", result_02)
+    print()
 
     result_03 = run_stage("03_weekly_goal")
     print("Stage 03:", result_03)
-    """
+    print()
 
     result_04 = run_stage("04_assignments")
     print("Stage 04:", result_04)
-
     print()
+
     result_05 = run_stage("05_assignment_description")
     print("Stage 05:", result_05)
+    print()

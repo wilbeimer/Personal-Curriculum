@@ -3,6 +3,9 @@ name: assignment_description
 version: 0.1
 loop_over: assignments
 merge_item: true
+depends_on: 
+    - 03_weekly_goals
+    - 04_assignments
 ---
 
 ## Inputs
@@ -14,6 +17,8 @@ merge_item: true
 ## Process
 Using the assignment title, type, weekly goal, and course context, write a detailed description of what the student needs to do to complete this assignment.
 Be specific about what is expected.
+Do not reference specific platforms (Canvas, Blackboard, etc.).
+All assignment types should have equally specific and actionable requirements.
 
 ## Output
 Return as JSON:

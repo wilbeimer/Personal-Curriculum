@@ -1,15 +1,12 @@
 {
-  "description": "Introduction to Natural Language Processing is a comprehensive course that delves into the fundamental concepts and techniques of natural language processing, including text preprocessing, tokenization, sentiment analysis, named entity recognition, and machine translation. This course will explore the theoretical foundations of NLP, as well as practical applications and state-of-the-art techniques, with a focus on deep learning models and their implementation using popular libraries such as NLTK, spaCy, and TensorFlow.",
-  "domain": "Computer Science",
+  "description": "This course explores the fundamental concepts of entertainment and intellectual property law, including the protection of creative works, copyright law, trademark law, and the regulation of entertainment industries. Students will learn about the legal frameworks that govern the creation, production, and distribution of entertainment content, such as music, film, and television.",
+  "domain": "Legal Studies",
   "subdomains": [
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Human-Computer Interaction"
+    "Entertainment Law",
+    "Intellectual Property Law"
   ],
   "prerequisites": [
-    "Programming skills in Python",
-    "Basic understanding of data structures and algorithms",
-    "Familiarity with linear algebra and calculus",
-    "Introduction to machine learning concepts and deep learning frameworks"
+    "Introduction to Law",
+    "Business of Entertainment"
   ]
 }

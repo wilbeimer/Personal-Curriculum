@@ -1,17 +1,21 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uuid
+import json
 from backend.database import init_db, get_db
-from backend.models import CourseCreate, Course, Assignment, AssignmentCreate, Submission, SubmissionCreate
+from backend.models import (
+    CourseCreate, Course,
+    Week, WeekCreate,
+    Assignment, AssignmentCreate,
+    Submission, SubmissionCreate
+)
+from backend.ai.runner import run_stage
 import os
-
 
 app = FastAPI()
 init_db()
 
-
 origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -25,22 +29,68 @@ def root():
     return {"message": "Hello World"}
 
 
-# Courses
+# --- Courses ---
+
 @app.get("/courses", response_model=list[Course])
 def get_courses(conn=Depends(get_db)):
     cur = conn.cursor()
     cur.execute("SELECT * FROM courses")
     rows = cur.fetchall()
-    return [dict(row) for row in rows]
+    return [deserialize_course(dict(row)) for row in rows]
 
 
 @app.post("/courses", response_model=Course)
 def post_course(course: CourseCreate, conn=Depends(get_db)):
+    # Run pipeline
+    result_01 = run_stage("01_course_description", {"course_name": course.name, "course_description": course.description})
+    result_02 = run_stage("02_course_length")
+    result_03 = run_stage("03_weekly_goal")
+    result_04 = run_stage("04_assignments")
+    result_05 = run_stage("05_assignment_description")
+
     cur = conn.cursor()
     course_id = str(uuid.uuid4())
-    cur.execute("INSERT INTO courses (id, name, description, color) VALUES (?, ?, ?, ?)", (course_id, course.name, course.description, course.color))
+
+    # Insert course
+    cur.execute("""
+        INSERT INTO courses (id, name, description, color, domain, subdomains, prerequisites, weeks, hours_per_week)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        course_id, course.name, result_01["description"], course.color,
+        result_01["domain"],
+        json.dumps(result_01["subdomains"]),
+        json.dumps(result_01["prerequisites"]),
+        result_02["weeks"],
+        result_02["hours_per_week"],
+    ))
+
+    # Insert weeks
+    week_id_map = {}
+    for week in result_03["weekly_goals"]:
+        week_id = str(uuid.uuid4())
+        week_id_map[week["week"]] = week_id
+        cur.execute("""
+            INSERT INTO course_weeks (id, courseId, week, goal, topics)
+            VALUES (?, ?, ?, ?, ?)
+        """, (week_id, course_id, week["week"], week["goal"], json.dumps(week["topics"])))
+
+    # Insert assignments
+    for assignment in result_05["assignments"]:
+        cur.execute("""
+            INSERT INTO assignments (id, courseId, weekId, week, title, type, description, requirements)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            str(uuid.uuid4()), course_id,
+            week_id_map.get(assignment["week"], ""),
+            assignment["week"],
+            assignment["title"],
+            assignment["type"],
+            assignment["description"],
+            json.dumps(assignment["requirements"]),
+        ))
+
     conn.commit()
-    return {"id": course_id, **course.model_dump()}
+    return get_course(course_id, conn)
 
 
 @app.get("/courses/{id}", response_model=Course)
@@ -50,7 +100,7 @@ def get_course(id: str, conn=Depends(get_db)):
     row = cur.fetchone()
     if row is None:
         raise HTTPException(status_code=404, detail="Course not found")
-    return dict(row)
+    return deserialize_course(dict(row))
 
 
 @app.delete("/courses/{id}", status_code=204)
@@ -60,20 +110,51 @@ def delete_course(id: str, conn=Depends(get_db)):
     conn.commit()
 
 
-# Assignments
+# --- Weeks ---
+
+@app.get("/courses/{id}/weeks", response_model=list[Week])
+def get_weeks(id: str, conn=Depends(get_db)):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM course_weeks WHERE courseId=? ORDER BY week", (id,))
+    rows = cur.fetchall()
+    return [deserialize_week(dict(row)) for row in rows]
+
+
+@app.post("/weeks", response_model=Week)
+def post_week(week: WeekCreate, conn=Depends(get_db)):
+    cur = conn.cursor()
+    week_id = str(uuid.uuid4())
+    cur.execute("""
+        INSERT INTO course_weeks (id, courseId, week, goal, topics)
+        VALUES (?, ?, ?, ?, ?)
+    """, (week_id, week.courseId, week.week, week.goal, json.dumps(week.topics)))
+    conn.commit()
+    return {"id": week_id, **week.model_dump()}
+
+
+# --- Assignments ---
+
 @app.get("/courses/{id}/assignments", response_model=list[Assignment])
 def get_assignments(id: str, conn=Depends(get_db)):
     cur = conn.cursor()
-    cur.execute("SELECT * FROM assignments WHERE courseId=?", (id,))
+    cur.execute("SELECT * FROM assignments WHERE courseId=? ORDER BY week", (id,))
     rows = cur.fetchall()
-    return [dict(row) for row in rows]
+    return [deserialize_assignment(dict(row)) for row in rows]
 
 
 @app.post("/assignments", response_model=Assignment)
 def post_assignment(assignment: AssignmentCreate, conn=Depends(get_db)):
     cur = conn.cursor()
     assignment_id = str(uuid.uuid4())
-    cur.execute("INSERT INTO assignments (id, courseId, title, type, dueDate, points, content, rubric) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (assignment_id, assignment.courseId, assignment.title, assignment.type, assignment.dueDate, assignment.points, assignment.content, assignment.rubric))
+    cur.execute("""
+        INSERT INTO assignments (id, courseId, weekId, week, title, type, description, requirements, dueDate, points, content, rubric)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        assignment_id, assignment.courseId, assignment.weekId, assignment.week,
+        assignment.title, assignment.type, assignment.description,
+        json.dumps(assignment.requirements),
+        assignment.dueDate, assignment.points, assignment.content, assignment.rubric
+    ))
     conn.commit()
     return {"id": assignment_id, **assignment.model_dump()}
 
@@ -85,10 +166,11 @@ def get_assignment(id: str, conn=Depends(get_db)):
     row = cur.fetchone()
     if row is None:
         raise HTTPException(status_code=404, detail="Assignment not found")
-    return dict(row)
+    return deserialize_assignment(dict(row))
 
 
-# Submissions
+# --- Submissions ---
+
 @app.get("/assignments/{id}/submissions", response_model=list[Submission])
 def get_submissions(id: str, conn=Depends(get_db)):
     cur = conn.cursor()
@@ -101,7 +183,10 @@ def get_submissions(id: str, conn=Depends(get_db)):
 def post_submission(submission: SubmissionCreate, conn=Depends(get_db)):
     cur = conn.cursor()
     submission_id = str(uuid.uuid4())
-    cur.execute("INSERT INTO submissions (id, assignmentId, grade, feedback, content) VALUES (?, ?, ?, ?, ?)", (submission_id, submission.assignmentId, submission.grade, submission.feedback, submission.content))
+    cur.execute("""
+        INSERT INTO submissions (id, assignmentId, grade, feedback, content)
+        VALUES (?, ?, ?, ?, ?)
+    """, (submission_id, submission.assignmentId, submission.grade, submission.feedback, submission.content))
     conn.commit()
     return {"id": submission_id, **submission.model_dump()}
 
@@ -111,4 +196,19 @@ def patch_submission():
     pass
 
 
-# AI
+# --- Deserializers ---
+
+def deserialize_course(row: dict) -> dict:
+    row["subdomains"] = json.loads(row.get("subdomains") or "[]")
+    row["prerequisites"] = json.loads(row.get("prerequisites") or "[]")
+    return row
+
+
+def deserialize_week(row: dict) -> dict:
+    row["topics"] = json.loads(row.get("topics") or "[]")
+    return row
+
+
+def deserialize_assignment(row: dict) -> dict:
+    row["requirements"] = json.loads(row.get("requirements") or "[]")
+    return row

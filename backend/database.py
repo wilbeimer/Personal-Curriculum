@@ -2,39 +2,64 @@ import sqlite3
 
 
 def init_db():
+    print("initializing db...")
     conn = sqlite3.connect('curriculum.db')
     cur = conn.cursor()
+
     cur.execute("""
         CREATE TABLE IF NOT EXISTS courses (
-                id TEXT PRIMARY KEY,
-                name TEXT NOT NULL,
-                description TEXT,
-                color TEXT
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            description TEXT,
+            color TEXT,
+            domain TEXT,
+            subdomains TEXT,
+            prerequisites TEXT,
+            weeks INTEGER,
+            hours_per_week INTEGER
         )
     """)
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS course_weeks (
+            id TEXT PRIMARY KEY,
+            courseId TEXT NOT NULL,
+            week INTEGER NOT NULL,
+            goal TEXT,
+            topics TEXT,
+            FOREIGN KEY (courseId) REFERENCES courses(id)
+        )
+    """)
+
     cur.execute("""
         CREATE TABLE IF NOT EXISTS assignments (
-                id TEXT PRIMARY KEY,
-                courseId TEXT NOT NULL,
-                title TEXT NOT NULL,
-                type TEXT NOT NULL,
-                dueDate TEXT,
-                points REAL,
-                content TEXT,
-                rubric TEXT,
-                FOREIGN KEY (courseId) REFERENCES courses(id)
+            id TEXT PRIMARY KEY,
+            courseId TEXT NOT NULL,
+            weekId TEXT,
+            week INTEGER,
+            title TEXT NOT NULL,
+            type TEXT NOT NULL,
+            description TEXT,
+            requirements TEXT,
+            dueDate TEXT,
+            points REAL,
+            rubric TEXT,
+            FOREIGN KEY (courseId) REFERENCES courses(id),
+            FOREIGN KEY (weekId) REFERENCES course_weeks(id)
         )
     """)
+
     cur.execute("""
         CREATE TABLE IF NOT EXISTS submissions (
-                id TEXT PRIMARY KEY,
-                assignmentId TEXT NOT NULL,
-                grade REAL,
-                feedback TEXT,
-                content TEXT NOT NULL,
-                FOREIGN KEY (assignmentId) REFERENCES assignments(id)
+            id TEXT PRIMARY KEY,
+            assignmentId TEXT NOT NULL,
+            grade REAL,
+            feedback TEXT,
+            content TEXT NOT NULL,
+            FOREIGN KEY (assignmentId) REFERENCES assignments(id)
         )
     """)
+
     conn.commit()
     conn.close()
 

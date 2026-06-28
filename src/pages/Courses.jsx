@@ -16,6 +16,8 @@ export default function Courses() {
    const navigate = useNavigate()
 
    function addCourse() {
+      console.log("posting to:", `${import.meta.env.VITE_API_URL}/courses`)
+
       fetch(`${import.meta.env.VITE_API_URL}/courses`, {
          method: "POST",
          headers: { "Content-Type": "application/json" },

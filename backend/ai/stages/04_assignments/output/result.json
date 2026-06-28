@@ -2,163 +2,103 @@
   "assignments": [
     {
       "week": 1,
-      "title": "Introduction to NLP Quiz",
+      "title": "Introduction to Entertainment Law Quiz",
       "type": "quiz"
     },
     {
       "week": 1,
-      "title": "Text Preprocessing Exercise",
+      "title": "Creative Works Protection Checklist",
+      "type": "checklist"
+    },
+    {
+      "week": 2,
+      "title": "Copyright Law Fundamentals Written Assignment",
       "type": "written"
     },
     {
       "week": 2,
-      "title": "Sentiment Analysis Project",
-      "type": "written"
-    },
-    {
-      "week": 2,
-      "title": "Named Entity Recognition Quiz",
+      "title": "Copyright Law Case Study Quiz",
       "type": "quiz"
     },
     {
       "week": 3,
-      "title": "Machine Translation Assignment",
-      "type": "written"
+      "title": "Trademark Law Basics Checklist",
+      "type": "checklist"
     },
     {
       "week": 3,
-      "title": "Language Modeling Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 4,
-      "title": "Data Preprocessing Project",
+      "title": "Trademark Law Application Written Assignment",
       "type": "written"
     },
     {
       "week": 4,
-      "title": "Data Visualization Quiz",
+      "title": "Regulation of Entertainment Industries Quiz",
       "type": "quiz"
     },
     {
-      "week": 5,
-      "title": "NLP Libraries Comparison",
+      "week": 4,
+      "title": "Industry Standards and Best Practices Written Assignment",
       "type": "written"
     },
     {
       "week": 5,
-      "title": "NLTK Exercise",
+      "title": "Business of Entertainment Case Study",
+      "type": "written"
+    },
+    {
+      "week": 5,
+      "title": "Intellectual Property in Business Checklist",
       "type": "checklist"
     },
     {
       "week": 6,
-      "title": "Text Classification Project",
-      "type": "written"
+      "title": "Contracts in Entertainment Law Quiz",
+      "type": "quiz"
     },
     {
       "week": 6,
-      "title": "Information Retrieval Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 7,
-      "title": "Word Embeddings Assignment",
+      "title": "Talent Agreements and Production Contracts Written Assignment",
       "type": "written"
     },
     {
       "week": 7,
-      "title": "Word2Vec Quiz",
+      "title": "International Entertainment Law Case Study",
+      "type": "written"
+    },
+    {
+      "week": 7,
+      "title": "Global Intellectual Property Law Quiz",
       "type": "quiz"
     },
     {
       "week": 8,
-      "title": "Recurrent Neural Networks Project",
+      "title": "Ethics in Entertainment Law Discussion",
       "type": "written"
     },
     {
       "week": 8,
-      "title": "LSTM Exercise",
+      "title": "Social Responsibility in Intellectual Property Checklist",
       "type": "checklist"
     },
     {
       "week": 9,
-      "title": "Chatbots Project",
-      "type": "written"
+      "title": "Emerging Trends in Entertainment Law Quiz",
+      "type": "quiz"
     },
     {
       "week": 9,
-      "title": "Speech Recognition Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 10,
-      "title": "Evaluation Metrics Assignment",
+      "title": "Future of Entertainment and IP Law Written Assignment",
       "type": "written"
     },
     {
       "week": 10,
-      "title": "Precision and Recall Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 11,
-      "title": "Attention Mechanisms Project",
+      "title": "Case Studies in Entertainment Law",
       "type": "written"
     },
     {
-      "week": 11,
-      "title": "Self-Attention Exercise",
+      "week": 10,
+      "title": "Practical Applications of Intellectual Property Checklist",
       "type": "checklist"
-    },
-    {
-      "week": 12,
-      "title": "Transfer Learning Assignment",
-      "type": "written"
-    },
-    {
-      "week": 12,
-      "title": "Pre-trained Models Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 13,
-      "title": "Adversarial Attacks Project",
-      "type": "written"
-    },
-    {
-      "week": 13,
-      "title": "Adversarial Training Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 14,
-      "title": "Social Media Analysis Assignment",
-      "type": "written"
-    },
-    {
-      "week": 14,
-      "title": "Sentiment Analysis Exercise",
-      "type": "checklist"
-    },
-    {
-      "week": 15,
-      "title": "Clinical Text Analysis Project",
-      "type": "written"
-    },
-    {
-      "week": 15,
-      "title": "Medical Question Answering Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 16,
-      "title": "Final Project",
-      "type": "written"
-    },
-    {
-      "week": 16,
-      "title": "Final Project Presentation",
-      "type": "written"
     }
   ]
 }
