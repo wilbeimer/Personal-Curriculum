@@ -11,13 +11,14 @@ from backend.ai.client import client
 
 AI_DIR = Path(__file__).parent
 DEFAULT_SYSTEM_PROMPT = "You are an expert AI assistant. Return only valid JSON, no markdown, no explanation."
+DEFAULT_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
 
 
 # --- Model ---
 
-def call_model(prompt: str, system_prompt: str) -> str:
+def call_model(prompt: str, system_prompt: str, model: str = DEFAULT_MODEL) -> str:
     response = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        model=model,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
@@ -157,7 +158,8 @@ def run_stage(stage_name: str, user_inputs: dict = {}, stages_dir: Path = AI_DIR
     if loop_over:
         result = run_loop_stage(loop_over, full_prompt, previous_outputs, meta.get("merge_item", False), system_prompt)
     else:
-        content = call_model(full_prompt, system_prompt)
+        model = meta.get("model", DEFAULT_MODEL)
+        content = call_model(full_prompt, system_prompt, model)
         result = parse_json_response(content)
 
     (output_path / "result.json").write_text(json.dumps(result, indent=2))
