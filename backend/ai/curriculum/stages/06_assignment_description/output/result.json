@@ -2,208 +2,190 @@
   "assignments": [
     {
       "week": 1,
-      "title": "Set Theory Fundamentals",
-      "type": "written",
-      "description": "For this assignment, you will provide a written response to the following questions: Define the basic set operations, including union, intersection, and difference. Explain the concept of a power set and how to calculate it for a given set. Provide examples of set theory applications in real-world scenarios. Your response should be well-organized, clearly written, and approximately 500-750 words in length.",
+      "title": "Introduction to Discrete Mathematics Quiz",
+      "type": "quiz",
+      "description": "The Introduction to Discrete Mathematics Quiz assesses your understanding of the fundamental concepts of discrete mathematics, including set theory, relations, functions, and mathematical proofs. This quiz will cover the basic definitions, properties, and operations of sets, as well as introductory concepts in relations and functions. You will be required to identify key terms, apply definitions, and solve basic problems related to these topics.",
       "requirements": [
-        "Define and explain the basic set operations (union, intersection, difference).",
-        "Describe the concept of a power set and provide a step-by-step example of how to calculate it for a given set.",
-        "Provide at least two real-world examples of set theory applications.",
-        "Ensure the response is 500-750 words in length.",
-        "Use proper mathematical notation and terminology."
+        "Read chapters 1-2 in the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen.",
+        "Review the lecture notes and class discussions on introductory discrete mathematics concepts.",
+        "Complete the practice problems provided in the textbook and class materials.",
+        "Take the quiz during the designated class period, following the instructions provided.",
+        "Ensure all work is your own and properly cited if required."
       ]
     },
     {
       "week": 1,
-      "title": "Set Theory Operations",
-      "type": "quiz",
-      "description": "For this quiz, students will demonstrate their understanding of set theory operations, including union, intersection, difference, and complement. The quiz will consist of multiple-choice questions and short-answer problems that require students to apply set theory concepts to solve problems.",
+      "title": "Basic Set Theory Exercises",
+      "type": "written",
+      "description": "For this assignment, students will complete a series of exercises to demonstrate their understanding of basic set theory concepts. Using the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen, students will work through selected problems that cover set operations, Venn diagrams, and basic set properties. The goal is to apply theoretical knowledge to practical problems, ensuring a solid grasp of foundational concepts.",
       "requirements": [
-        "Complete 10 multiple-choice questions on set theory operations within 30 minutes.",
-        "Solve 2 short-answer problems that require students to show their work and explain their reasoning.",
-        "Achieve a minimum score of 70% to pass the quiz."
+        "Read Chapter 1 of the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen, focusing on set theory.",
+        "Complete problems 1-10 on page 23 of the textbook, which cover basic set operations and properties.",
+        "Draw Venn diagrams for problems 3, 5, and 7 to visualize set relationships.",
+        "Write out solutions to problems 1, 4, and 9, showing all steps and explanations."
       ]
     },
     {
       "week": 1,
-      "title": "Basic Mathematical Structures",
+      "title": "Mathematical Proofs Checklist",
       "type": "checklist",
-      "description": "For this assignment, students will review and familiarize themselves with basic mathematical structures. This includes understanding sets, relations, and functions, which form the foundation of discrete mathematics. Students are expected to identify and list the key properties and types of these structures.",
+      "description": "Complete the mathematical proofs checklist by working through each problem and providing a step-by-step proof for each. Ensure that your proofs are clear, concise, and easy to follow. The checklist is designed to help you understand and apply the principles of mathematical proofs, which are a fundamental concept in discrete mathematics. Refer to the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen for guidance on mathematical proofs.",
       "requirements": [
-        "Read sections 1.1-1.3 in the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen.",
-        "List and define the key types of sets (e.g., empty set, finite set, infinite set).",
-        "Identify and describe the properties of relations (e.g., reflexive, symmetric, transitive).",
-        "Provide examples of different types of functions (e.g., one-to-one, onto, bijective).",
-        "Submit a checklist with the following items:\n            - Definition of a set\n            - Properties of relations\n            - Types of functions\n            - Examples of each"
+        "Work through each problem on the checklist and provide a complete proof",
+        "Ensure that each proof is step-by-step and easy to follow",
+        "Use proper mathematical notation and terminology throughout the proofs",
+        "Review the textbook for guidance on mathematical proofs and apply the concepts to the problems on the checklist"
       ]
     },
     {
       "week": 2,
-      "title": "Relations and Functions",
-      "type": "written",
-      "description": "For this assignment, students will demonstrate their understanding of relations and functions in discrete mathematics. Students are expected to provide clear and concise written responses to the following prompts: Define what a relation is and provide examples of relations in real-world scenarios. Explain the properties of relations, including reflexivity, symmetry, and transitivity. Describe the concept of a function, including the definition of domain and range. Provide examples of functions and explain how they differ from relations. Use mathematical notation to represent relations and functions.",
+      "title": "Relations and Functions Quiz",
+      "type": "quiz",
+      "description": "For this quiz, students will demonstrate their understanding of relations and functions in discrete mathematics. The quiz will cover the definition and properties of relations and functions, including reflexive, symmetric, and transitive properties, as well as one-to-one and onto functions. Students will be expected to identify and explain these concepts, and apply them to solve problems.",
       "requirements": [
-        "The submission should be in a written format (e.g., PDF, Word document, or text file).",
-        "The submission should include a clear and concise definition of a relation and its properties.",
-        "The submission should include examples of relations and functions in real-world scenarios.",
-        "The submission should use proper mathematical notation to represent relations and functions.",
-        "The submission should be 2-3 pages in length, double-spaced."
+        "Read chapters 5 and 6 in the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen",
+        "Review class notes and examples on relations and functions",
+        "Complete practice problems on relations and functions before the quiz",
+        "The quiz will consist of multiple-choice questions, short-answer questions, and problem-solving questions",
+        "Students are expected to bring a calculator and any other materials specified by the instructor"
       ]
     },
     {
       "week": 2,
-      "title": "Relations Properties",
-      "type": "quiz",
-      "description": "For this quiz, students will demonstrate their understanding of the properties of relations, including reflexivity, symmetry, and transitivity. Students will be given a set of relations and asked to identify which properties each relation satisfies. The quiz will consist of multiple-choice questions and short-answer questions that require students to provide explanations for their answers.",
+      "title": "Relations and Functions Practice Problems",
+      "type": "written",
+      "description": "For this assignment, students will complete a set of practice problems focused on relations and functions in discrete mathematics. The goal is to reinforce understanding of these concepts through hands-on problem-solving.",
       "requirements": [
-        "Read sections 6.2-6.4 in the textbook, Discrete Mathematics and Its Applications by Kenneth H. Rosen.",
-        "Complete the provided practice problems on relations properties before taking the quiz.",
-        "Answer all multiple-choice questions correctly.",
-        "Provide clear and concise explanations for short-answer questions, demonstrating understanding of reflexivity, symmetry, and transitivity."
+        "Read sections 2.1 and 2.2 in the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen.",
+        "Complete problems 1-10 on page 55 of the textbook, which cover identifying relations and functions.",
+        "Solve exercises 1-5 on page 63, focusing on function operations and composition.",
+        "Provide detailed solutions to at least 5 additional problems of your choice from the end of section 2.2.",
+        "Submit your solutions in a clear and organized format, with each problem numbered and showing all work."
       ]
     },
     {
       "week": 3,
-      "title": "Graph Theory Basics",
-      "type": "written",
-      "description": "For this assignment, students will provide a written response to the topic of graph theory basics. Students should review the relevant chapters in the textbook, specifically focusing on the definition and properties of graphs, including vertices, edges, and adjacency. The response should include a clear explanation of these concepts, along with examples to illustrate their understanding. Students are expected to use proper mathematical notation and terminology throughout their response.",
+      "title": "Graph Theory Quiz",
+      "type": "quiz",
+      "description": "The student will complete a quiz on Graph Theory, covering topics such as graph terminology, types of graphs, and basic graph algorithms. The quiz will assess the student's understanding of graph theory concepts, including graph representations, traversability, and connectivity.",
       "requirements": [
-        "A clear and concise definition of a graph, including its components (vertices, edges).",
-        "An explanation of the concept of adjacency in graphs, with examples.",
-        "Discussion of at least two types of graphs (e.g., simple graphs, weighted graphs) and their characteristics.",
-        "Proper use of mathematical notation and terminology related to graph theory.",
-        "Examples or diagrams to support explanations."
+        "The quiz will consist of multiple-choice questions and short-answer problems.",
+        "The student must complete all questions within the given time limit.",
+        "The student must achieve a minimum score of 70% to pass the quiz.",
+        "The quiz will cover chapters 10-12 in the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen."
       ]
     },
     {
       "week": 3,
-      "title": "Graph Structures",
+      "title": "Graph Terminology and Types Checklist",
       "type": "checklist",
-      "description": "For this assignment, students will demonstrate their understanding of various graph structures by identifying and describing key properties. Students should review the relevant sections in the textbook, specifically focusing on graph terminology, types of graphs (such as simple graphs, multigraphs, pseudographs, directed graphs, and weighted graphs), and common graph structures like complete graphs, cycles, and wheels. Students will then complete a checklist that requires them to correctly classify and describe different graph structures based on their properties.",
+      "description": "Complete a checklist of key graph terminology and types. Students should review the definitions and characteristics of various graph types, including simple graphs, multigraphs, pseudographs, directed graphs, and weighted graphs. The checklist should cover the following: \n  - Define and identify simple graphs, multigraphs, pseudographs, directed graphs, and weighted graphs.\n  - List and describe the basic terminology used in graph theory, such as vertices, edges, adjacency, and degree of a vertex.\n  - Identify and provide examples of different types of graphs and their applications.\n  - Review and understand the concepts of graph isomorphism, graph connectivity, and graph traversability.",
       "requirements": [
-        "Identify and describe the properties of simple graphs, multigraphs, pseudographs, directed graphs, and weighted graphs.",
-        "Recognize and explain the characteristics of complete graphs, cycles, wheels, and other common graph structures.",
-        "Classify given graph structures into their respective categories.",
-        "Provide accurate descriptions of the properties and features of each graph structure type."
+        "Complete the checklist of graph terminology and types provided in class.",
+        "Provide definitions and examples for each type of graph covered in the checklist.",
+        "Review and verify understanding of graph theory concepts through self-quizzing or peer discussion.",
+        "Submit the completed checklist as a PDF or Word document."
       ]
     },
     {
       "week": 4,
-      "title": "Combinatorics Fundamentals",
-      "type": "written",
-      "description": "For this assignment, students will demonstrate their understanding of combinatorics fundamentals by solving a series of problems related to counting principles, permutations, and combinations. Students should provide detailed solutions to each problem, showing all necessary steps and calculations. The goal is to apply mathematical concepts to solve real-world problems and develop problem-solving skills.",
+      "title": "Combinatorics Quiz",
+      "type": "quiz",
+      "description": "The Combinatorics Quiz assesses your understanding of fundamental concepts in combinatorics, including permutations, combinations, and basic counting principles. You will be presented with multiple-choice questions that test your ability to apply these concepts to solve problems.",
       "requirements": [
-        "Read sections 5.1-5.3 in the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen.",
-        "Complete problems 1-10 on page 125 of the textbook, showing all work and calculations.",
-        "Solve the following additional problems: If a set contains 10 elements, how many subsets does it have? A committee of 3 people is to be formed from a group of 10 people. How many different committees are possible?",
-        "Submit your solutions as a single PDF document, with each problem clearly labeled and numbered."
+        "Read chapters 5 and 6 in the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen.",
+        "Review the lecture notes and examples provided for combinatorics.",
+        "Complete the practice problems on permutations and combinations.",
+        "Take the quiz within the allotted time frame (usually 60 minutes).",
+        "Answer all questions to the best of your ability."
       ]
     },
     {
       "week": 4,
-      "title": "Permutations and Combinations",
-      "type": "quiz",
-      "description": "In this quiz, students will demonstrate their understanding of permutations and combinations. The quiz will consist of multiple-choice questions and problems that require students to calculate permutations and combinations in various scenarios. Students will need to apply formulas and concepts learned in the course to solve problems.",
+      "title": "Permutations and Combinations Practice Problems",
+      "type": "written",
+      "description": "For this written assignment, complete the practice problems related to permutations and combinations as outlined in chapters 5 and 6 of 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen. Be sure to show all work and explain your reasoning for each problem. The assignment should include solutions to at least 10 problems, with a focus on applying the concepts of permutations and combinations to solve real-world problems.",
       "requirements": [
-        "Students must complete all questions within the given time limit.",
-        "Students must show all work and calculations for each problem.",
-        "Students must achieve a minimum score of 70% to pass the quiz."
+        "Complete all assigned practice problems from chapters 5 and 6 of the textbook",
+        "Show all work and explain your reasoning for each problem",
+        "Apply the concepts of permutations and combinations to solve real-world problems",
+        "Submit your work in a clear and legible format",
+        "Include a cover page with your name, assignment title, and week number"
       ]
     },
     {
       "week": 5,
-      "title": "Propositional Logic",
-      "type": "written",
-      "description": "For this assignment, students will demonstrate an understanding of propositional logic by providing detailed solutions to a set of problems. The goal is to apply the concepts of propositional logic to evaluate and simplify logical expressions, and to construct truth tables for given propositions.",
+      "title": "Propositional and Predicate Logic Quiz",
+      "type": "quiz",
+      "description": "The student will complete a quiz on propositional and predicate logic, demonstrating understanding of logical operators, truth tables, and proof techniques. The quiz will assess the student's ability to apply logical concepts to solve problems and evaluate arguments.",
       "requirements": [
-        "Read sections 1.4 and 1.5 of the textbook, 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen.",
-        "Complete the following problems:\n      1. Let p, q, and r be the propositions:\n         p: You have the flu.\n         q: You miss the final examination.\n         r: You pass the course.\n         Express the following propositions as logical expressions:\n         a) You have the flu and miss the final examination.\n         b) You have the flu and pass the course.\n         c) You miss the final examination and pass the course.\n      2. Construct truth tables for the following propositions:\n         a) (p \u2227 q) \u2192 r\n         b) (p \u2228 q) \u2194 r\n      3. Determine whether the following propositions are tautologies:\n         a) (p \u2227 q) \u2192 (p \u2228 q)\n         b) (p \u2192 q) \u2194 (\u00acq \u2192 \u00acp)",
-        "Submit a written document with clear explanations and justifications for all answers.",
-        "Include your name, course number, week number, and assignment title at the top of the page."
+        "Read chapters 1 and 2 in the textbook, 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen, focusing on propositional and predicate logic.",
+        "Review the lecture notes and examples provided in class, ensuring understanding of logical operators, truth tables, and proof techniques.",
+        "Complete practice problems from the textbook and in-class exercises to reinforce understanding of logical concepts.",
+        "The quiz will consist of multiple-choice questions, short-answer questions, and problem-solving questions, covering topics such as logical operators, truth tables, and proof techniques.",
+        "The student must achieve a minimum score of 70% to pass the quiz."
       ]
     },
     {
       "week": 5,
-      "title": "Predicate Logic",
-      "type": "quiz",
-      "description": "For this quiz on Predicate Logic, students will need to understand the concepts of predicates, quantifiers (universal and existential), and how to apply them to express statements in a formal and precise manner. The quiz will test their ability to interpret and construct predicate logic expressions, as well as reason about the truth values of statements involving predicates and quantifiers.",
+      "title": "Logical Operators and Proof Techniques Checklist",
+      "type": "checklist",
+      "description": "Complete a checklist of key logical operators and proof techniques in discrete mathematics. This checklist will cover the definitions and uses of various logical operators, including negation, conjunction, disjunction, implication, and equivalence. Additionally, it will review common proof techniques such as direct proof, proof by contrapositive, proof by contradiction, and proof by cases.",
       "requirements": [
-        "Read sections 1.4 (Predicate Logic) in the textbook.",
-        "Complete the provided practice problems on predicate logic expressions and quantifiers.",
-        "Be prepared to define and explain key terms such as predicate, domain, universal quantifier, and existential quantifier.",
-        "Work through sample quiz questions that illustrate the application of predicate logic in expressing and evaluating statements."
+        "Define and provide examples of the following logical operators: negation, conjunction, disjunction, implication, and equivalence.",
+        "List and describe the steps for the following proof techniques: direct proof, proof by contrapositive, proof by contradiction, and proof by cases.",
+        "Provide examples of how to apply each logical operator and proof technique in a mathematical context.",
+        "Complete a series of exercises to practice identifying and applying logical operators and proof techniques."
       ]
     },
     {
       "week": 6,
-      "title": "Mathematical Proofs",
+      "title": "Applications of Discrete Mathematics Project",
       "type": "written",
-      "description": "For this assignment, students will write a detailed mathematical proof for a given problem. The goal is to apply logical reasoning and mathematical principles to derive a valid conclusion. Students should carefully read the problem statement, identify the premises and the conclusion to be proven, and then construct a step-by-step proof using appropriate mathematical notation and logical rules.",
+      "description": "For this project, you will apply the concepts of discrete mathematics to a real-world problem or scenario. Choose a topic that interests you, such as computer network design, cryptography, or optimization problems. Your task is to analyze the problem, identify the relevant discrete mathematics concepts, and propose a solution using those concepts. Your project should include a clear problem statement, a detailed analysis of the problem using discrete mathematics, and a well-supported solution.",
       "requirements": [
-        "The proof should start with a clear statement of what is to be proven.",
-        "Each step in the proof must be justified by a relevant mathematical principle or previously established fact.",
-        "The proof should conclude with a clear statement of the proven result.",
-        "Students must use proper mathematical notation and terminology throughout the proof.",
-        "The assignment should be submitted in a clear and legible format, either typed or handwritten with clear scans or photographs."
-      ]
-    },
-    {
-      "week": 6,
-      "title": "Problem-Solving",
-      "type": "checklist",
-      "description": "For this assignment, students will complete a checklist to demonstrate their understanding of problem-solving strategies in discrete mathematics. The checklist will cover various problem-solving techniques learned throughout the course, including but not limited to, analyzing problem statements, identifying key concepts, and applying relevant theorems and algorithms.",
-      "requirements": [
-        "Complete a checklist of 10 problem-solving strategies in discrete mathematics.",
-        "For each strategy, provide a brief description (1-2 sentences) of how it can be applied to solve problems in discrete mathematics.",
-        "Ensure that all checklist items are accurately completed and submitted on time."
+        "The project should be 3-5 pages in length, not including references or appendices.",
+        "Include a clear and concise problem statement that sets the context for your project.",
+        "Identify and apply relevant discrete mathematics concepts, such as graph theory, combinatorics, or propositional and predicate logic.",
+        "Provide a detailed analysis of the problem and a well-supported solution.",
+        "Include a bibliography of at least 3 sources, properly cited.",
+        "Use proper mathematical notation and formatting throughout the project."
       ]
     },
     {
       "week": 7,
-      "title": "Graph Algorithms",
-      "type": "written",
-      "description": "For this written assignment, you will explore and describe various graph algorithms. Using the concepts learned in class and the textbook 'Discrete Mathematics and Its Applications' by Kenneth H. Rosen, you are expected to provide a detailed explanation of at least three fundamental graph algorithms: Breadth-First Search (BFS), Depth-First Search (DFS), and Dijkstra's algorithm. Your response should include a clear description of each algorithm, their applications, and examples of how they are used in real-world scenarios. Make sure to use proper mathematical notation and provide any necessary diagrams to support your explanations.",
-      "requirements": [
-        "Provide a detailed description of the Breadth-First Search (BFS) algorithm, including its steps and an example of its application.",
-        "Explain the Depth-First Search (DFS) algorithm, including its steps and an example of its application.",
-        "Describe Dijkstra's algorithm for finding the shortest path in a graph, including its steps and an example of its application.",
-        "Use proper mathematical notation and include any necessary diagrams to support your explanations.",
-        "Ensure your work is well-organized and clearly written."
-      ]
-    },
-    {
-      "week": 7,
-      "title": "Graph Traversals",
+      "title": "Review of Discrete Mathematics Concepts Quiz",
       "type": "quiz",
-      "description": "In this quiz, students will demonstrate their understanding of graph traversals, including depth-first search (DFS) and breadth-first search (BFS) algorithms. Students will be given a set of graph structures and asked to identify the correct traversal order for each graph.",
+      "description": "The Review of Discrete Mathematics Concepts Quiz is a comprehensive assessment designed to evaluate students' understanding of key concepts covered throughout the course. This quiz will test students' knowledge of discrete mathematics topics, including set theory, relations, functions, graph theory, combinatorics, propositional and predicate logic, and mathematical proofs. Students are expected to review all previous course materials and come prepared to apply their knowledge to solve problems and answer questions.",
       "requirements": [
-        "Read sections 10.3 and 10.4 in the textbook, Discrete Mathematics and Its Applications by Kenneth H. Rosen.",
-        "Complete the provided practice problems on graph traversals.",
-        "Take the quiz within the given time frame and submit it through the course platform."
+        "Review all course materials from weeks 1-6.",
+        "Complete practice problems and critical thinking exercises provided in the course resources.",
+        "Take the quiz within the designated time frame, following the instructions provided.",
+        "Answer all questions to the best of your ability, showing all work and reasoning."
       ]
     },
     {
-      "week": 8,
-      "title": "Course Review",
+      "week": 7,
+      "title": "Practice Problems and Critical Thinking Exercises Checklist",
       "type": "checklist",
-      "description": "For this course review assignment, students will verify their understanding of key concepts covered throughout the course. The task involves reviewing all the major topics in discrete mathematics, including set theory, relations, functions, graph theory, combinatorics, propositional and predicate logic, and mathematical proofs.",
+      "description": "For this assignment, students will complete a checklist of practice problems and critical thinking exercises. The goal is to reinforce understanding of discrete mathematics concepts covered throughout the course. Students should review all previous course material and complete the checklist by providing detailed solutions or explanations as required.",
       "requirements": [
-        "Review and summarize the main concepts from weeks 1 through 7.",
-        "Ensure understanding of set theory, relations, functions, graph theory, combinatorics, and logic.",
-        "Complete a checklist of key terms and concepts to confirm familiarity.",
-        "Submit the completed checklist for review."
+        "Review the course material from weeks 1-6",
+        "Complete the practice problems and critical thinking exercises as outlined in the checklist",
+        "Provide detailed solutions or explanations for each problem",
+        "Submit the completed checklist with all required parts filled out"
       ]
     },
     {
       "week": 8,
-      "title": "Practice Problems",
-      "type": "written",
-      "description": "For this assignment, students will work on a variety of practice problems that cover all the topics studied throughout the course. The goal is to reinforce understanding and problem-solving skills in discrete mathematics. Students should review all previous material and attempt to solve problems from each week's topics. The submission should include detailed solutions to the problems, clearly showing the steps taken to reach the answers.",
+      "title": "Final Assessment",
+      "type": "quiz",
+      "description": "The final assessment is a comprehensive quiz that covers all the topics studied throughout the course. Students are expected to review and be familiar with the concepts and materials from weeks 1 to 7. The quiz will consist of multiple-choice questions, short-answer questions, and problem-solving questions that assess students' understanding and application of discrete mathematics concepts.",
       "requirements": [
-        "Complete a minimum of 20 practice problems covering at least 5 different topics from the course.",
-        "Provide detailed solutions to each problem, including all steps and explanations.",
-        "Organize solutions in a clear and readable format, using proper mathematical notation and terminology.",
-        "Submit solutions in a single document, either in PDF or Word format."
+        "Review all course materials and notes from weeks 1 to 7.",
+        "Complete a timed quiz consisting of 20 multiple-choice questions, 5 short-answer questions, and 2 problem-solving questions.",
+        "Submit the quiz within the given time frame (e.g., 2 hours).",
+        "Ensure all answers are clearly marked and submitted in the required format."
       ]
     }
   ]

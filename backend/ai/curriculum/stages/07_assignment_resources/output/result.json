@@ -1,189 +1,167 @@
 {
   "assignment_resources": [
     {
-      "assignment_title": "Set Theory Fundamentals",
+      "assignment_title": "Introduction to Discrete Mathematics Quiz",
       "resources": [
         {
-          "title": "Set Theory Playlist \u2014 Dantes.io",
-          "url": "https://dantes.io/resource/set-theory-playlist-692a6465d8979d1c3728121a",
-          "type": "article",
-          "description": "Video playlist covering the fundamentals of set theory, including definitions, notation, and basic operations."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Set Theory Operations",
-      "resources": [
-        {
-          "title": "Brilliant.org \u2013 Set Operations",
-          "url": "https://brilliant.org/wiki/set-operations/",
-          "type": "article",
-          "description": "Interactive explanations and practice problems on union, intersection, difference, and complement."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Basic Mathematical Structures",
-      "resources": [
-        {
-          "title": "Khan Academy \u2013 Introduction to Mathematical Structures",
-          "url": "https://www.khanacademy.org/math/discrete-math",
-          "type": "article",
-          "description": "Overview of sets, relations, functions, and other foundational structures in discrete mathematics."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Relations and Functions",
-      "resources": [
-        {
-          "title": "MIT OpenCourseWare \u2013 Mathematics for Computer Science (Lecture Notes)",
-          "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2005/",
+          "title": "Introduction to Discrete Mathematics",
+          "url": "https://www.khanacademy.org/math/discrete-math/introduction-to-discrete-math",
           "type": "documentation",
-          "description": "Comprehensive lecture notes covering relations, functions, and their properties."
+          "description": "Khan Academy lesson covering the basic concepts and definitions that form the foundation of discrete mathematics."
         }
       ]
     },
     {
-      "assignment_title": "Relations Properties",
+      "assignment_title": "Basic Set Theory Exercises",
       "resources": [
         {
-          "title": "Wikipedia \u2013 Relation (mathematics)",
-          "url": "https://en.wikipedia.org/wiki/Relation_(mathematics)",
-          "type": "article",
-          "description": "Detailed description of reflexive, symmetric, transitive, and antisymmetric properties."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Graph Theory Basics",
-      "resources": [
-        {
-          "title": "Khan Academy \u2013 Graph Theory Introduction",
-          "url": "https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/v/graph-theory-introduction",
-          "type": "article",
-          "description": "Video and text introducing vertices, edges, and basic graph terminology."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Graph Structures",
-      "resources": [
-        {
-          "title": "MathWorld \u2013 Graph (mathematics)",
-          "url": "https://mathworld.wolfram.com/Graph.html",
-          "type": "article",
-          "description": "Formal definitions of different graph types, including directed, weighted, and bipartite graphs."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Combinatorics Fundamentals",
-      "resources": [
-        {
-          "title": "Brilliant.org \u2013 Combinatorics",
-          "url": "https://brilliant.org/wiki/combinatorics/",
-          "type": "article",
-          "description": "Conceptual overview and practice problems on counting principles."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Permutations and Combinations",
-      "resources": [
-        {
-          "title": "Khan Academy \u2013 Permutations and Combinations",
-          "url": "https://www.khanacademy.org/math/statistics-probability/counting-permutations-and-combinations",
-          "type": "article",
-          "description": "Step\u2011by\u2011step lessons on calculating permutations, combinations, and related problems."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Propositional Logic",
-      "resources": [
-        {
-          "title": "Stanford Encyclopedia of Philosophy \u2013 Propositional Logic",
-          "url": "https://plato.stanford.edu/entries/logic-propositional/",
-          "type": "article",
-          "description": "In\u2011depth philosophical and technical treatment of propositional logic syntax and semantics."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Predicate Logic",
-      "resources": [
-        {
-          "title": "Stanford Encyclopedia of Philosophy \u2013 Predicate Logic",
-          "url": "https://plato.stanford.edu/entries/logic-predicate/",
-          "type": "article",
-          "description": "Comprehensive overview of first\u2011order logic, quantifiers, and formal proof techniques."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Mathematical Proofs",
-      "resources": [
-        {
-          "title": "MIT OpenCourseWare \u2013 How to Write Proofs",
-          "url": "https://ocw.mit.edu/courses/18-904-seminar-on-proofs/",
+          "title": "Sets \u2013 Introduction and Practice",
+          "url": "https://www.khanacademy.org/math/discrete-math/sets",
           "type": "documentation",
-          "description": "Course materials focusing on proof strategies, logic, and common proof styles."
+          "description": "Interactive lessons and exercises on set notation, operations, Venn diagrams, and basic set theory problems."
         }
       ]
     },
     {
-      "assignment_title": "Problem-Solving",
+      "assignment_title": "Mathematical Proofs Checklist",
       "resources": [
         {
-          "title": "Art of Problem Solving \u2013 Introduction to Problem Solving",
-          "url": "https://artofproblemsolving.com/wiki/index.php/Problem_Solving",
-          "type": "article",
-          "description": "Guidelines and techniques for tackling mathematical problems effectively."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Graph Algorithms",
-      "resources": [
-        {
-          "title": "GeeksforGeeks \u2013 Graph Algorithms",
-          "url": "https://www.geeksforgeeks.org/graph-data-structures-and-algorithms/",
-          "type": "article",
-          "description": "Explanation of common graph algorithms such as shortest path, spanning tree, and flow."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Graph Traversals",
-      "resources": [
-        {
-          "title": "GeeksforGeeks \u2013 Graph Traversal (BFS & DFS)",
-          "url": "https://www.geeksforgeeks.org/graph-traversal-bfs-and-dfs/",
-          "type": "article",
-          "description": "Detailed walkthrough of breadth\u2011first and depth\u2011first search with code examples."
-        }
-      ]
-    },
-    {
-      "assignment_title": "Course Review",
-      "resources": [
-        {
-          "title": "Coursera \u2013 Discrete Mathematics Review",
-          "url": "https://www.coursera.org/learn/discrete-mathematics-review",
+          "title": "Proofs in Discrete Mathematics",
+          "url": "https://www.khanacademy.org/math/discrete-math/proofs",
           "type": "documentation",
-          "description": "A short review course covering key concepts from set theory to graph algorithms."
+          "description": "Comprehensive guide to proof techniques (direct, contrapositive, contradiction, induction) with examples and checklist items."
         }
       ]
     },
     {
-      "assignment_title": "Practice Problems",
+      "assignment_title": "Relations and Functions Quiz",
       "resources": [
         {
-          "title": "Project Euler \u2013 Mathematics Problems",
-          "url": "https://projecteuler.net/",
-          "type": "article",
-          "description": "A collection of challenging problems that reinforce concepts across the entire curriculum."
+          "title": "Relations and Functions",
+          "url": "https://www.khanacademy.org/math/discrete-math/relations-functions",
+          "type": "documentation",
+          "description": "Lesson covering definitions, properties, composition, inverses, and quizzes for relations and functions."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Relations and Functions Practice Problems",
+      "resources": [
+        {
+          "title": "Relations and Functions \u2013 Practice",
+          "url": "https://www.khanacademy.org/math/discrete-math/relations-functions",
+          "type": "documentation",
+          "description": "A set of practice problems with step\u2011by\u2011step solutions for mastering relations and functions."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Graph Theory Quiz",
+      "resources": [
+        {
+          "title": "Introduction to Graph Theory",
+          "url": "https://www.khanacademy.org/math/discrete-math/graph-theory",
+          "type": "documentation",
+          "description": "Quiz\u2011style assessment covering vertices, edges, paths, cycles, and basic graph terminology."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Graph Terminology and Types Checklist",
+      "resources": [
+        {
+          "title": "Graph Terminology and Types",
+          "url": "https://www.khanacademy.org/math/discrete-math/graph-theory",
+          "type": "documentation",
+          "description": "Checklist of key graph concepts (simple, directed, weighted, trees, bipartite) with examples."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Combinatorics Quiz",
+      "resources": [
+        {
+          "title": "Fundamentals of Combinatorics",
+          "url": "https://www.khanacademy.org/math/discrete-math/combinatorics",
+          "type": "documentation",
+          "description": "Quiz covering counting principles, permutations, combinations, and the pigeonhole principle."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Permutations and Combinations Practice Problems",
+      "resources": [
+        {
+          "title": "Permutations & Combinations Practice",
+          "url": "https://www.khanacademy.org/math/discrete-math/combinatorics",
+          "type": "documentation",
+          "description": "A collection of practice problems with detailed solutions for permutations and combinations."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Propositional and Predicate Logic Quiz",
+      "resources": [
+        {
+          "title": "Propositional and Predicate Logic",
+          "url": "https://www.khanacademy.org/math/discrete-math/logic",
+          "type": "documentation",
+          "description": "Quiz testing understanding of logical connectives, truth tables, quantifiers, and predicate logic."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Logical Operators and Proof Techniques Checklist",
+      "resources": [
+        {
+          "title": "Logical Operators & Proof Techniques",
+          "url": "https://www.khanacademy.org/math/discrete-math/logic",
+          "type": "documentation",
+          "description": "Checklist summarizing logical operators, equivalences, and common proof strategies."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Applications of Discrete Mathematics Project",
+      "resources": [
+        {
+          "title": "Applications of Discrete Mathematics \u2013 MIT OCW",
+          "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2005/pages/applications/",
+          "type": "documentation",
+          "description": "MIT OpenCourseWare material describing real\u2011world applications of discrete math in computer science, networking, and cryptography."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Review of Discrete Mathematics Concepts Quiz",
+      "resources": [
+        {
+          "title": "Discrete Mathematics Review Quiz",
+          "url": "https://www.khanacademy.org/math/discrete-math/review",
+          "type": "documentation",
+          "description": "Comprehensive review quiz covering all major topics from the course."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Practice Problems and Critical Thinking Exercises Checklist",
+      "resources": [
+        {
+          "title": "Critical Thinking Exercises in Discrete Math",
+          "url": "https://www.khanacademy.org/math/discrete-math/review",
+          "type": "documentation",
+          "description": "Checklist of challenging practice problems designed to develop deeper problem\u2011solving skills."
+        }
+      ]
+    },
+    {
+      "assignment_title": "Final Assessment",
+      "resources": [
+        {
+          "title": "Final Assessment \u2013 Discrete Mathematics",
+          "url": "https://www.khanacademy.org/math/discrete-math/final-assessment",
+          "type": "documentation",
+          "description": "Summative assessment covering the entire curriculum, suitable for final grading."
         }
       ]
     }

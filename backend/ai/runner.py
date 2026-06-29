@@ -36,7 +36,8 @@ def call_model(prompt: str, system_prompt: str, model: str = DEFAULT_MODEL) -> s
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": prompt}
-                ]
+                ],
+                max_tokens=4000
             )
             content = response.choices[0].message.content
             if content is None:

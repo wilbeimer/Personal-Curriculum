@@ -2,88 +2,78 @@
   "assignments": [
     {
       "week": 1,
-      "title": "Set Theory Fundamentals",
-      "type": "written"
-    },
-    {
-      "week": 1,
-      "title": "Set Theory Operations",
+      "title": "Introduction to Discrete Mathematics Quiz",
       "type": "quiz"
     },
     {
       "week": 1,
-      "title": "Basic Mathematical Structures",
+      "title": "Basic Set Theory Exercises",
+      "type": "written"
+    },
+    {
+      "week": 1,
+      "title": "Mathematical Proofs Checklist",
       "type": "checklist"
     },
     {
       "week": 2,
-      "title": "Relations and Functions",
-      "type": "written"
+      "title": "Relations and Functions Quiz",
+      "type": "quiz"
     },
     {
       "week": 2,
-      "title": "Relations Properties",
-      "type": "quiz"
-    },
-    {
-      "week": 3,
-      "title": "Graph Theory Basics",
+      "title": "Relations and Functions Practice Problems",
       "type": "written"
     },
     {
       "week": 3,
-      "title": "Graph Structures",
+      "title": "Graph Theory Quiz",
+      "type": "quiz"
+    },
+    {
+      "week": 3,
+      "title": "Graph Terminology and Types Checklist",
       "type": "checklist"
     },
     {
       "week": 4,
-      "title": "Combinatorics Fundamentals",
-      "type": "written"
+      "title": "Combinatorics Quiz",
+      "type": "quiz"
     },
     {
       "week": 4,
-      "title": "Permutations and Combinations",
-      "type": "quiz"
-    },
-    {
-      "week": 5,
-      "title": "Propositional Logic",
+      "title": "Permutations and Combinations Practice Problems",
       "type": "written"
     },
     {
       "week": 5,
-      "title": "Predicate Logic",
+      "title": "Propositional and Predicate Logic Quiz",
       "type": "quiz"
     },
     {
-      "week": 6,
-      "title": "Mathematical Proofs",
-      "type": "written"
-    },
-    {
-      "week": 6,
-      "title": "Problem-Solving",
+      "week": 5,
+      "title": "Logical Operators and Proof Techniques Checklist",
       "type": "checklist"
     },
     {
-      "week": 7,
-      "title": "Graph Algorithms",
+      "week": 6,
+      "title": "Applications of Discrete Mathematics Project",
       "type": "written"
     },
     {
       "week": 7,
-      "title": "Graph Traversals",
+      "title": "Review of Discrete Mathematics Concepts Quiz",
       "type": "quiz"
     },
     {
-      "week": 8,
-      "title": "Course Review",
+      "week": 7,
+      "title": "Practice Problems and Critical Thinking Exercises Checklist",
       "type": "checklist"
     },
     {
       "week": 8,
-      "title": "Practice Problems",
-      "type": "written"
+      "title": "Final Assessment",
+      "type": "quiz"
     }
   ]
 }

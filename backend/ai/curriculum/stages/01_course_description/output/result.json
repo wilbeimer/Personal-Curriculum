@@ -1,5 +1,5 @@
 {
-  "description": "This course provides a comprehensive introduction to discrete mathematics, focusing on mathematical structures and processes that are essential for computer science and other related fields. Topics include set theory, relations, functions, graph theory, combinatorics, and propositional and predicate logic. Students will learn to think mathematically, develop logical reasoning, and apply discrete math concepts to solve problems.",
+  "description": "This course provides a comprehensive introduction to discrete mathematics, covering fundamental concepts and techniques essential for computer science, mathematics, and related fields. Topics include set theory, relations, functions, graph theory, combinatorics, and propositional and predicate logic. Students will learn to apply discrete mathematical structures to solve problems in computer science and other disciplines.",
   "domain": "Mathematics",
   "subdomains": [
     "Set Theory",

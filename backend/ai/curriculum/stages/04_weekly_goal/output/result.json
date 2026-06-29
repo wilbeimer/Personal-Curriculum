@@ -2,66 +2,70 @@
   "weekly_goals": [
     {
       "week": 1,
-      "goal": "Introduce students to the fundamental concepts of discrete mathematics, including set theory and basic mathematical structures.",
+      "goal": "Introduce students to the fundamentals of discrete mathematics, including basic concepts and notation.",
       "topics": [
         "Introduction to Discrete Mathematics",
-        "Set Theory: Basic Definitions and Operations"
+        "Basic Set Theory",
+        "Mathematical Proofs"
       ]
     },
     {
       "week": 2,
-      "goal": "Develop understanding of relations and functions, including their properties and applications.",
+      "goal": "Cover relations and functions, including their properties and applications.",
       "topics": [
-        "Relations: Properties and Types",
-        "Functions: Definitions, Types, and Applications"
+        "Relations and Their Properties",
+        "Functions and Their Applications"
       ]
     },
     {
       "week": 3,
-      "goal": "Cover the basics of graph theory, including graph structures and traversals.",
+      "goal": "Delve into graph theory, including basic concepts and graph types.",
       "topics": [
         "Introduction to Graph Theory",
-        "Graph Structures: Paths, Cycles, and Trees"
+        "Graph Terminology",
+        "Graph Types"
       ]
     },
     {
       "week": 4,
-      "goal": "Explore combinatorics, including permutations, combinations, and binomial coefficients.",
+      "goal": "Explore combinatorics, including permutations, combinations, and counting principles.",
       "topics": [
         "Permutations and Combinations",
-        "Binomial Coefficients and Pascal's Triangle"
+        "Counting Principles",
+        "Binomial Coefficients"
       ]
     },
     {
       "week": 5,
-      "goal": "Introduce students to propositional and predicate logic, including logical operations and inference.",
+      "goal": "Introduce propositional and predicate logic, including logical operators and proof techniques.",
       "topics": [
-        "Propositional Logic: Statements, Operators, and Truth Tables",
-        "Predicate Logic: Quantifiers, Statements, and Inference"
+        "Propositional Logic",
+        "Predicate Logic",
+        "Logical Operators and Proof Techniques"
       ]
     },
     {
       "week": 6,
-      "goal": "Apply discrete math concepts to solve problems, focusing on logical reasoning and mathematical proofs.",
+      "goal": "Apply discrete mathematical structures to solve problems in computer science and other disciplines.",
       "topics": [
-        "Mathematical Proofs: Direct, Indirect, and Contrapositive Proofs",
-        "Problem-Solving with Discrete Mathematics"
+        "Applications of Discrete Mathematics in Computer Science",
+        "Case Studies and Group Projects"
       ]
     },
     {
       "week": 7,
-      "goal": "Review and apply graph theory concepts, including graph algorithms and traversals.",
+      "goal": "Review and practice previously covered topics, with an emphasis on problem-solving and critical thinking.",
       "topics": [
-        "Graph Algorithms: Dijkstra's, Bellman-Ford, and Topological Sort",
-        "Graph Traversals: DFS, BFS, and Applications"
+        "Review of Discrete Mathematics Concepts",
+        "Practice Problems and Critical Thinking Exercises"
       ]
     },
     {
       "week": 8,
-      "goal": "Comprehensive review of course material and preparation for final assessment.",
+      "goal": "Finalize student understanding of discrete mathematics and its applications, with a focus on assessment and evaluation.",
       "topics": [
-        "Review of Discrete Mathematics Concepts",
-        "Practice Problems and Final Assessment Preparation"
+        "Final Assessment and Evaluation",
+        "Course Wrap-Up and Feedback"
       ]
     }
   ]

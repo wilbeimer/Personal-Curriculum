@@ -3,6 +3,7 @@ import os
 import sqlite3
 import uuid
 from backend.ai.runner import run_stage
+from backend.ai.youtube import search_youtube
 from backend.models import CourseCreate
 
 STAGES_DIR = os.path.join(os.path.dirname(__file__), "curriculum", "stages")
@@ -39,7 +40,7 @@ def generate_curriculum(course_id: str, course: CourseCreate):
         r01 = results.get("01_course_description", {})
         r03 = results.get("03_course_length", {})
         r04 = results.get("04_weekly_goal", {})
-        r05 = results.get("05_assignments", {})
+        _ = results.get("05_assignments", {})
         r06 = results.get("06_assignment_description", {})
         r07 = results.get("07_assignment_resources", {})
 
@@ -81,6 +82,9 @@ def generate_curriculum(course_id: str, course: CourseCreate):
 
         # Insert assignments
         for assignment in r06["assignments"]:
+            query = f"{assignment['title']} {r01['domain']} tutorials"
+            videos = search_youtube(query, max_results=2)
+
             cur.execute("""
                 INSERT INTO assignments (id, courseId, weekId, week, title, type, description, requirements, resources)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -92,7 +96,7 @@ def generate_curriculum(course_id: str, course: CourseCreate):
                 assignment["type"],
                 assignment["description"],
                 json.dumps(assignment["requirements"]),
-                json.dumps(resources_map.get(assignment["title"], [])),
+                json.dumps(videos),
             ))
 
         conn.commit()
