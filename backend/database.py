@@ -16,7 +16,8 @@ def init_db():
             subdomains TEXT,
             prerequisites TEXT,
             weeks INTEGER,
-            hours_per_week INTEGER
+            hours_per_week INTEGER,
+            status TEXT DEFAULT 'pending'
         )
     """)
 
@@ -56,6 +57,7 @@ def init_db():
             grade REAL,
             feedback TEXT,
             content TEXT NOT NULL,
+            status TEXT DEFAULT 'pending',
             FOREIGN KEY (assignmentId) REFERENCES assignments(id)
         )
     """)

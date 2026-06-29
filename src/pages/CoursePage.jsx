@@ -51,24 +51,6 @@ export default function CoursePage() {
                </li>
             ))} 
          </ul>
-
-         <div className="assignment-form">
-            <h2 className="form-title">Add an assignment</h2>
-            <div className="form-row">
-               <label htmlFor="atitle">Assignment Name</label>
-               <input type="text" id="atitle" value={title} onChange={e => setTitle(e.target.value)} />
-            </div>
-            <div className="form-row">
-               <label htmlFor="atype">Assignment Type</label>
-               <select id="atype" value={type} onChange={e => setType(e.target.value)}>
-                  <option value="">Select a type</option>
-                  <option value="quiz">Quiz</option>
-                  <option value="written">Written</option>
-                  <option value="checklist">checklist</option>
-               </select>
-            </div>
-            <button className="btn-primary" onClick={handleAddAssignment}>Add Assignment</button>
-         </div>
       </div>
    )
 }

@@ -1,0 +1,12 @@
+{
+  "description": "This course provides an in-depth introduction to the structure, properties, and reactions of carbon-based compounds. Students will explore the fundamentals of bonding, stereochemistry, reaction mechanisms, and functional group transformations in organic chemistry. Emphasis will be placed on understanding the relationships between molecular structure and chemical reactivity, as well as the application of organic chemistry principles to real-world problems.",
+  "domain": "Chemistry",
+  "subdomains": [
+    "Organic Chemistry",
+    "Physical Chemistry"
+  ],
+  "prerequisites": [
+    "General Chemistry I and II",
+    "High School Chemistry"
+  ]
+}

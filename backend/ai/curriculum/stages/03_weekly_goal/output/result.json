@@ -1,0 +1,112 @@
+{
+  "weekly_goals": [
+    {
+      "week": 1,
+      "goal": "Understand the basics of organic chemistry, including the definition, importance, and historical background of the field.",
+      "topics": [
+        "Introduction to Organic Chemistry",
+        "History and Importance of Organic Chemistry",
+        "Basic Concepts and Definitions"
+      ]
+    },
+    {
+      "week": 2,
+      "goal": "Master the concepts of atomic structure, molecular orbitals, and types of chemical bonds.",
+      "topics": [
+        "Atomic Structure and Electronic Configuration",
+        "Molecular Orbitals and Hybridization",
+        "Types of Chemical Bonds in Organic Molecules"
+      ]
+    },
+    {
+      "week": 3,
+      "goal": "Learn about alkanes, including their structure, nomenclature, and physical properties.",
+      "topics": [
+        "Structure and Nomenclature of Alkanes",
+        "Physical Properties of Alkanes",
+        "Sources and Uses of Alkanes"
+      ]
+    },
+    {
+      "week": 4,
+      "goal": "Understand the concepts of stereochemistry, including isomers, configuration, and conformation.",
+      "topics": [
+        "Introduction to Stereochemistry",
+        "Isomers and Stereoisomers",
+        "R/S Configuration and Fischer Projections"
+      ]
+    },
+    {
+      "week": 5,
+      "goal": "Study the reactions of alkanes, including combustion, substitution, and elimination reactions.",
+      "topics": [
+        "Reactions of Alkanes",
+        "Combustion and Substitution Reactions",
+        "Elimination Reactions and Radical Halogenation"
+      ]
+    },
+    {
+      "week": 6,
+      "goal": "Explore the structure, nomenclature, and properties of alkenes and alkynes.",
+      "topics": [
+        "Structure and Nomenclature of Alkenes and Alkynes",
+        "Physical Properties and Sources of Alkenes and Alkynes",
+        "Electrophilic Addition Reactions"
+      ]
+    },
+    {
+      "week": 7,
+      "goal": "Understand the concepts of reaction mechanisms, including types of reactions and reaction conditions.",
+      "topics": [
+        "Introduction to Reaction Mechanisms",
+        "Types of Organic Reactions",
+        "Reaction Conditions and Catalysts"
+      ]
+    },
+    {
+      "week": 8,
+      "goal": "Learn about alcohols and thiols, including their structure, nomenclature, and properties.",
+      "topics": [
+        "Structure and Nomenclature of Alcohols and Thiols",
+        "Physical Properties and Uses of Alcohols and Thiols",
+        "Reactions of Alcohols and Thiols"
+      ]
+    },
+    {
+      "week": 9,
+      "goal": "Study the structure, nomenclature, and reactions of ethers and epoxides.",
+      "topics": [
+        "Structure and Nomenclature of Ethers and Epoxides",
+        "Physical Properties and Uses of Ethers and Epoxides",
+        "Reactions of Ethers and Epoxides"
+      ]
+    },
+    {
+      "week": 10,
+      "goal": "Explore the concepts of functional group transformations, including oxidation, reduction, and substitution reactions.",
+      "topics": [
+        "Introduction to Functional Group Transformations",
+        "Oxidation and Reduction Reactions",
+        "Substitution Reactions and Elimination Reactions"
+      ]
+    },
+    {
+      "week": 11,
+      "goal": "Understand the applications of organic chemistry to real-world problems, including pharmaceuticals, materials science, and environmental issues.",
+      "topics": [
+        "Applications of Organic Chemistry in Pharmaceuticals",
+        "Applications of Organic Chemistry in Materials Science",
+        "Environmental Applications and Issues"
+      ]
+    },
+    {
+      "week": 12,
+      "goal": "Review and synthesize the key concepts learned throughout the course, preparing for final assessment.",
+      "topics": [
+        "Comprehensive Review of Organic Chemistry Concepts",
+        "Practice Problems and Case Studies",
+        "Final Assessment Preparation"
+      ]
+    }
+  ]
+}

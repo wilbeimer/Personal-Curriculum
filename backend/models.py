@@ -10,13 +10,14 @@ class CourseCreate(BaseModel):
 class Course(BaseModel):
     id: str
     name: str
-    description: str
     color: str
-    domain: str = ''
+    status: str = 'pending'
+    description: str | None = None
+    domain: str | None = None
     subdomains: list[str] = []
     prerequisites: list[str] = []
-    weeks: int = 0
-    hours_per_week: int = 0
+    weeks: int | None = None
+    hours_per_week: int | None = None
 
 
 class Assignment(BaseModel):
@@ -70,15 +71,14 @@ class AssignmentCreate(BaseModel):
 class Submission(BaseModel):
     id: str
     assignmentId: str
-    grade: float = 0
-    feedback: str = ''
+    grade: float | None = None
+    feedback: str | None = None
     content: str
+    status: str = 'pending'
 
 
 class SubmissionCreate(BaseModel):
     assignmentId: str
-    grade: float = 0
-    feedback: str = ''
     content: str
 
 

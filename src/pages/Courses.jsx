@@ -6,6 +6,7 @@ export default function Courses() {
    const [name, setName] = useState('')
    const [color, setColor] = useState('#6c63ff')
    const [description, setDescription] = useState('')
+   const navigate = useNavigate()
 
    useEffect(() => {
       fetch(`${import.meta.env.VITE_API_URL}/courses`)
@@ -13,7 +14,25 @@ export default function Courses() {
          .then(data => setCourses(data))
    }, [])
 
-   const navigate = useNavigate()
+   useEffect(() => {
+      const pending = courses.filter(c => c.status === 'pending')
+      if (pending.length === 0) return
+
+
+      const interval = setInterval(() => {
+         pending.forEach( course => {
+            fetch(`${import.meta.env.VITE_API_URL}/courses/${course.id}`)
+               .then(res => res.json())
+               .then(updated => {
+                  if (updated.status !== 'pending') {
+                     setCourses(prev => prev.map(c => c.id === updated.id ? updated : c))
+                  }
+              })
+         })
+      }, 3000);
+
+      return () => clearInterval(interval)
+   }, [courses])
 
    function addCourse() {
       console.log("posting to:", `${import.meta.env.VITE_API_URL}/courses`)
@@ -65,18 +84,22 @@ export default function Courses() {
 
          <ul className="course-list">
             {courses.map(course => (
-               <li key={course.id} className="course-card" onClick={() => navigate(`/courses/${course.id}`)}>
+               <li key={course.id} className={`course-card ${course.status === 'pending' ? 'course-card--pending' : ''}`}
+                  onClick={() => course.status === 'completed' && navigate(`/courses/${course.id}`)}>
                   <div className="course-card-banner" style={{ background: course.color }} />
                   <div className="course-card-body">
                      <div className="course-card-info">
                         <span className="course-name">{course.name}</span>
-                        <span className="course-description">{course.description}</span>
+                        {course.status === 'pending'
+                           ? <span className="course-status">Generating curriculum...</span>
+                           : <span className="course-description">{course.description}</span>
+                        }
+                        {course.status === 'failed' && <span className="course-status course-status--failed">Generation failed</span>}
                      </div>
                      <button className="btn-danger" onClick={(e) => {
                         e.stopPropagation()
                         deleteCourse(course.id)
                      }}>Delete</button>
-                     
                   </div>
                </li>
             ))} 

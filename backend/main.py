@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 import uuid
 import json
@@ -9,7 +9,8 @@ from backend.models import (
     Assignment, AssignmentCreate,
     Submission, SubmissionCreate
 )
-from backend.ai.runner import run_stage
+from backend.ai.curriculum import generate_curriculum
+from backend.ai.grader import grade_submission
 import os
 
 app = FastAPI()
@@ -39,58 +40,28 @@ def get_courses(conn=Depends(get_db)):
     return [deserialize_course(dict(row)) for row in rows]
 
 
-@app.post("/courses", response_model=Course)
-def post_course(course: CourseCreate, conn=Depends(get_db)):
-    # Run pipeline
-    result_01 = run_stage("01_course_description", {"course_name": course.name, "course_description": course.description})
-    result_02 = run_stage("02_course_length")
-    result_03 = run_stage("03_weekly_goal")
-    result_04 = run_stage("04_assignments")
-    result_05 = run_stage("05_assignment_description")
+@app.post("/courses", response_model=dict)
+def post_course(course: CourseCreate, background_tasks: BackgroundTasks, conn=Depends(get_db)):
 
     cur = conn.cursor()
     course_id = str(uuid.uuid4())
 
-    # Insert course
     cur.execute("""
-        INSERT INTO courses (id, name, description, color, domain, subdomains, prerequisites, weeks, hours_per_week)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (
-        course_id, course.name, result_01["description"], course.color,
-        result_01["domain"],
-        json.dumps(result_01["subdomains"]),
-        json.dumps(result_01["prerequisites"]),
-        result_02["weeks"],
-        result_02["hours_per_week"],
-    ))
-
-    # Insert weeks
-    week_id_map = {}
-    for week in result_03["weekly_goals"]:
-        week_id = str(uuid.uuid4())
-        week_id_map[week["week"]] = week_id
-        cur.execute("""
-            INSERT INTO course_weeks (id, courseId, week, goal, topics)
-            VALUES (?, ?, ?, ?, ?)
-        """, (week_id, course_id, week["week"], week["goal"], json.dumps(week["topics"])))
-
-    # Insert assignments
-    for assignment in result_05["assignments"]:
-        cur.execute("""
-            INSERT INTO assignments (id, courseId, weekId, week, title, type, description, requirements)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
-            str(uuid.uuid4()), course_id,
-            week_id_map.get(assignment["week"], ""),
-            assignment["week"],
-            assignment["title"],
-            assignment["type"],
-            assignment["description"],
-            json.dumps(assignment["requirements"]),
-        ))
+        INSERT INTO courses (id, name, color, status)
+        VALUES (?, ?, ?, ?)
+    """, (course_id, course.name, course.color, "pending"))
 
     conn.commit()
-    return get_course(course_id, conn)
+
+    # Queue the generation to run in the background
+    background_tasks.add_task(generate_curriculum, course_id, course)
+
+    return {
+        "id": course_id,
+        "name": course.name,
+        "color": course.color,
+        "status": "pending"
+    }
 
 
 @app.get("/courses/{id}", response_model=Course)
@@ -179,21 +150,36 @@ def get_submissions(id: str, conn=Depends(get_db)):
     return [dict(row) for row in rows]
 
 
+@app.get("/submissions/{id}", response_model=Submission)
+def get_submission(id: str, conn=Depends(get_db)):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM submissions WHERE id=?", (id,))
+    row = cur.fetchone()
+    if row is None:
+        raise HTTPException(status_code=404, detail="Submission not found")
+    return dict(row)
+
+
 @app.post("/submissions", response_model=Submission)
-def post_submission(submission: SubmissionCreate, conn=Depends(get_db)):
+def post_submission(submission: SubmissionCreate, background_tasks: BackgroundTasks, conn=Depends(get_db)):
     cur = conn.cursor()
     submission_id = str(uuid.uuid4())
+
     cur.execute("""
-        INSERT INTO submissions (id, assignmentId, grade, feedback, content)
-        VALUES (?, ?, ?, ?, ?)
-    """, (submission_id, submission.assignmentId, submission.grade, submission.feedback, submission.content))
+        INSERT INTO submissions (id, assignmentId, content, status)
+        VALUES (?, ?, ?, ?)
+    """, (submission_id, submission.assignmentId, submission.content, "pending"))
+
     conn.commit()
-    return {"id": submission_id, **submission.model_dump()}
 
+    background_tasks.add_task(grade_submission, submission_id, submission)
 
-@app.patch("/submissions")
-def patch_submission():
-    pass
+    return {
+        "id": submission_id,
+        "assignmentId": submission.assignmentId,
+        "content": submission.content,
+        "status": "pending"
+    }
 
 
 # --- Deserializers ---
