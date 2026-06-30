@@ -2,78 +2,83 @@
   "assignments": [
     {
       "week": 1,
-      "title": "Introduction to Discrete Mathematics Quiz",
+      "title": "Introduction to Set Theory Quiz",
       "type": "quiz"
     },
     {
       "week": 1,
-      "title": "Basic Set Theory Exercises",
+      "title": "Set Operations Exercise",
       "type": "written"
     },
     {
-      "week": 1,
-      "title": "Mathematical Proofs Checklist",
+      "week": 2,
+      "title": "Set Theory Applications Problem Set",
+      "type": "written"
+    },
+    {
+      "week": 2,
+      "title": "Relations and Functions Checklist",
       "type": "checklist"
     },
     {
-      "week": 2,
-      "title": "Relations and Functions Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 2,
-      "title": "Relations and Functions Practice Problems",
-      "type": "written"
-    },
-    {
       "week": 3,
-      "title": "Graph Theory Quiz",
+      "title": "Combinatorics Introduction Quiz",
       "type": "quiz"
     },
     {
       "week": 3,
-      "title": "Graph Terminology and Types Checklist",
-      "type": "checklist"
+      "title": "Permutations and Combinations Exercise",
+      "type": "written"
     },
     {
       "week": 4,
-      "title": "Combinatorics Quiz",
-      "type": "quiz"
-    },
-    {
-      "week": 4,
-      "title": "Permutations and Combinations Practice Problems",
+      "title": "Combinatorial Proof Techniques Problem Set",
       "type": "written"
     },
     {
       "week": 5,
-      "title": "Propositional and Predicate Logic Quiz",
+      "title": "Graph Theory Introduction Quiz",
       "type": "quiz"
     },
     {
       "week": 5,
-      "title": "Logical Operators and Proof Techniques Checklist",
+      "title": "Graph Terminology Checklist",
       "type": "checklist"
     },
     {
       "week": 6,
-      "title": "Applications of Discrete Mathematics Project",
+      "title": "Graph Algorithms Problem Set",
       "type": "written"
     },
     {
       "week": 7,
-      "title": "Review of Discrete Mathematics Concepts Quiz",
+      "title": "Number Theory Introduction Quiz",
       "type": "quiz"
     },
     {
       "week": 7,
-      "title": "Practice Problems and Critical Thinking Exercises Checklist",
-      "type": "checklist"
+      "title": "Divisibility and Prime Numbers Exercise",
+      "type": "written"
     },
     {
       "week": 8,
-      "title": "Final Assessment",
-      "type": "quiz"
+      "title": "Diophantine Equations Problem Set",
+      "type": "written"
+    },
+    {
+      "week": 9,
+      "title": "Discrete Mathematics Case Study",
+      "type": "written"
+    },
+    {
+      "week": 10,
+      "title": "Final Project Presentation",
+      "type": "written"
+    },
+    {
+      "week": 10,
+      "title": "Practice Problems Checklist",
+      "type": "checklist"
     }
   ]
 }

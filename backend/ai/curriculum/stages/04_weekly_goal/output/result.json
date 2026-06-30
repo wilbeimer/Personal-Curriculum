@@ -2,70 +2,92 @@
   "weekly_goals": [
     {
       "week": 1,
-      "goal": "Introduce students to the fundamentals of discrete mathematics, including basic concepts and notation.",
+      "goal": "Understand the basic principles of set theory and its relevance to discrete mathematics",
       "topics": [
-        "Introduction to Discrete Mathematics",
-        "Basic Set Theory",
-        "Mathematical Proofs"
+        "Introduction to set theory",
+        "Set operations",
+        "Set properties"
       ]
     },
     {
       "week": 2,
-      "goal": "Cover relations and functions, including their properties and applications.",
+      "goal": "Apply set theory to solve problems in discrete mathematics",
       "topics": [
-        "Relations and Their Properties",
-        "Functions and Their Applications"
+        "Set theory applications",
+        "Relations and functions",
+        "Equivalence relations"
       ]
     },
     {
       "week": 3,
-      "goal": "Delve into graph theory, including basic concepts and graph types.",
+      "goal": "Comprehend the fundamental concepts of combinatorics",
       "topics": [
-        "Introduction to Graph Theory",
-        "Graph Terminology",
-        "Graph Types"
+        "Introduction to combinatorics",
+        "Permutations and combinations",
+        "Recurrence relations"
       ]
     },
     {
       "week": 4,
-      "goal": "Explore combinatorics, including permutations, combinations, and counting principles.",
+      "goal": "Analyze and solve combinatorial problems using various techniques",
       "topics": [
-        "Permutations and Combinations",
-        "Counting Principles",
-        "Binomial Coefficients"
+        "Combinatorial proof techniques",
+        "Inclusion-exclusion principle",
+        "Generating functions"
       ]
     },
     {
       "week": 5,
-      "goal": "Introduce propositional and predicate logic, including logical operators and proof techniques.",
+      "goal": "Understand the basics of graph theory and its applications",
       "topics": [
-        "Propositional Logic",
-        "Predicate Logic",
-        "Logical Operators and Proof Techniques"
+        "Introduction to graph theory",
+        "Graph terminology",
+        "Graph types"
       ]
     },
     {
       "week": 6,
-      "goal": "Apply discrete mathematical structures to solve problems in computer science and other disciplines.",
+      "goal": "Apply graph theory to solve problems in computer science and mathematics",
       "topics": [
-        "Applications of Discrete Mathematics in Computer Science",
-        "Case Studies and Group Projects"
+        "Graph algorithms",
+        "Shortest paths",
+        "Network flows"
       ]
     },
     {
       "week": 7,
-      "goal": "Review and practice previously covered topics, with an emphasis on problem-solving and critical thinking.",
+      "goal": "Study the fundamental principles of number theory",
       "topics": [
-        "Review of Discrete Mathematics Concepts",
-        "Practice Problems and Critical Thinking Exercises"
+        "Introduction to number theory",
+        "Divisibility and prime numbers",
+        "Congruences"
       ]
     },
     {
       "week": 8,
-      "goal": "Finalize student understanding of discrete mathematics and its applications, with a focus on assessment and evaluation.",
+      "goal": "Analyze and solve problems in number theory using various techniques",
       "topics": [
-        "Final Assessment and Evaluation",
-        "Course Wrap-Up and Feedback"
+        "Diophantine equations",
+        "Fermat's little theorem",
+        "Euler's totient function"
+      ]
+    },
+    {
+      "week": 9,
+      "goal": "Integrate knowledge of discrete mathematical structures to solve complex problems",
+      "topics": [
+        "Applications of discrete mathematics",
+        "Case studies",
+        "Project work"
+      ]
+    },
+    {
+      "week": 10,
+      "goal": "Review and apply knowledge of discrete mathematics to real-world scenarios",
+      "topics": [
+        "Review of key concepts",
+        "Practice problems",
+        "Final project presentations"
       ]
     }
   ]

@@ -38,6 +38,7 @@ def generate_curriculum(course_id: str, course: CourseCreate):
 
         # Convenience aliases
         r01 = results.get("01_course_description", {})
+        r02 = results.get("02_course_resources", {})
         r03 = results.get("03_course_length", {})
         r04 = results.get("04_weekly_goal", {})
         _ = results.get("05_assignments", {})
@@ -58,7 +59,8 @@ def generate_curriculum(course_id: str, course: CourseCreate):
                 prerequisites = ?,
                 weeks = ?,
                 hours_per_week = ?,
-                status = 'completed'
+                status = 'completed',
+                textbook = ?
             WHERE id = ?
         """, (
             r01["description"],
@@ -68,6 +70,7 @@ def generate_curriculum(course_id: str, course: CourseCreate):
             r03["weeks"],
             r03["hours_per_week"],
             course_id,
+            json.dumps(r02.get("textbook", {}))
         ))
 
         # Insert weeks
@@ -83,7 +86,12 @@ def generate_curriculum(course_id: str, course: CourseCreate):
         # Insert assignments
         for assignment in r06["assignments"]:
             query = f"{assignment['title']} {r01['domain']} tutorials"
-            videos = search_youtube(query, max_results=2)
+
+            try:
+                videos = search_youtube(query, max_results=2)
+            except Exception as e:
+                print(f"YouTube search failed for {assignment['title']}: {e}")
+                videos = []
 
             cur.execute("""
                 INSERT INTO assignments (id, courseId, weekId, week, title, type, description, requirements, resources)

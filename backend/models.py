@@ -18,6 +18,7 @@ class Course(BaseModel):
     prerequisites: list[str] = []
     weeks: int | None = None
     hours_per_week: int | None = None
+    textbook: list[dict] = []
 
 
 class Assignment(BaseModel):

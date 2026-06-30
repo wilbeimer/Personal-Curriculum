@@ -41,6 +41,8 @@ export default function CoursePage() {
       setType('')
    }
 
+   console.log("textbook:", course.textbook)
+
    return (
       <div className="page">
          <div className="course-page-banner" style={{ background: course?.color }} />
@@ -48,6 +50,22 @@ export default function CoursePage() {
          {course.description && (
             <p className="course-description">{course.description}</p>
          )}
+
+         {course.textbook?.length > 0 && (
+            <div className="course-textbook">
+               <h2>Course Textbook</h2>
+               <ul>
+                  {course.textbook.map((t, i) => (
+                     <li key={i}>
+                        <a href={t.url} target="_blank" rel="noreferrer">{t.title}</a>
+                        <span className="author">{t.author}</span>
+                        <p>{t.description}</p>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+         )}
+
          {weeks.map(week => (
             <div key={week} className="week-group">
                <h2 className="week-title">Week {week}</h2>

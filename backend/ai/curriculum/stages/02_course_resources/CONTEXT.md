@@ -12,7 +12,6 @@ Return as JSON:
     "textbook": {
         "title": "...",
         "author": "...",
-        "url": "...",
         "description": "..."
     }
 }

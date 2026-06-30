@@ -187,6 +187,7 @@ def post_submission(submission: SubmissionCreate, background_tasks: BackgroundTa
 def deserialize_course(row: dict) -> dict:
     row["subdomains"] = json.loads(row.get("subdomains") or "[]")
     row["prerequisites"] = json.loads(row.get("prerequisites") or "[]")
+    row["textbook"] = json.loads(row.get("textbook") or "[]")
     return row
 
 

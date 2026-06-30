@@ -1,5 +1,5 @@
 {
-  "weeks": 8,
-  "hours_per_week": 10,
-  "reasoning": "The course provides a comprehensive introduction to discrete mathematics, covering fundamental concepts and techniques essential for computer science, mathematics, and related fields. Given the breadth of topics including set theory, relations, functions, graph theory, combinatorics, and propositional and predicate logic, an 8-week course with 10 hours per week is reasonable. This allows for in-depth coverage of each topic, practice problems, and assignments to ensure students gain a solid understanding of discrete mathematical structures and their applications."
+  "weeks": 10,
+  "hours_per_week": 6,
+  "reasoning": "Given the comprehensive nature of the course description, covering key concepts such as set theory, combinatorics, graph theory, and number theory, it is estimated that the course will require 10 weeks to complete. The estimated hours per week are 6, considering the need for students to thoroughly understand and apply the discrete mathematical structures and their applications, while also taking into account the prerequisites of Algebra and Basic Mathematical Reasoning."
 }

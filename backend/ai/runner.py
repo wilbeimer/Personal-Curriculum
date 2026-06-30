@@ -28,6 +28,7 @@ FALLBACK_MODELS = [
 
 def call_model(prompt: str, system_prompt: str, model: str = DEFAULT_MODEL) -> str:
     models_to_try = [model] + [m for m in FALLBACK_MODELS if m != model]
+    last_error = None
 
     for m in models_to_try:
         try:
@@ -45,15 +46,20 @@ def call_model(prompt: str, system_prompt: str, model: str = DEFAULT_MODEL) -> s
             return content
 
         except Exception as e:
+            last_error = e
             if "rate_limit" in str(e) or "429" in str(e):
                 print(f"Rate limit hit for {m}, trying next model...")
-                continue
-            raise
+            else:
+                print(f"Error from {m}, {e}, trying next model...")
+            continue
 
-    raise RuntimeError("All models rate limited")
+    raise RuntimeError(f"All models failed. Last error: {last_error}")
 
 
 def parse_json_response(content: str) -> dict:
+    if not content or content.strip() == "":
+        raise ValueError("Cannot parse empty content as JSON")
+
     content = content.strip()
     if content.startswith("```"):
         content = content.split("```")[1]
@@ -67,8 +73,6 @@ def parse_json_response(content: str) -> dict:
         content = re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', content)
         return json.loads(content, strict=False)
 
-
-# --- Context loading ---
 
 def load_pipeline_context(stages_dir: Path) -> tuple[str, str, str]:
     """Returns (identity_md, workspace_context, system_prompt)"""
@@ -154,7 +158,11 @@ def run_loop_stage(loop_over: str, full_prompt: str, previous_outputs: dict, mer
     if items is None:
         raise ValueError(f"loop_over key '{loop_over}' not found in previous outputs")
 
-    def process_item(item):
+    total = len(items)
+    completed = 0
+
+    def process_item(item, index):
+        nonlocal completed
         content = call_model(
             full_prompt + f"\n\n## Current Item\n{json.dumps(item, indent=2)}",
             system_prompt,
@@ -163,15 +171,17 @@ def run_loop_stage(loop_over: str, full_prompt: str, previous_outputs: dict, mer
         result = parse_json_response(content)
         if merge_item:
             result = {**item, **result}
+        completed += 1
+        print(f"loop {completed}/{total} done: {item.get('title', index)}")
         return result
 
     results = {}
     with ThreadPoolExecutor(max_workers=2) as executor:
         futures = {}
         for i, item in enumerate(items):
-            futures[executor.submit(process_item, item)] = i
+            futures[executor.submit(process_item, item, i)] = i
             time.sleep(1)
-        
+
         for future, i in futures.items():
             results[i] = future.result()
 

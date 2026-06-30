@@ -17,7 +17,8 @@ def init_db():
             prerequisites TEXT,
             weeks INTEGER,
             hours_per_week INTEGER,
-            status TEXT DEFAULT 'pending'
+            status TEXT DEFAULT 'pending',
+            textbook TEXT DEFAULT '{}'
         )
     """)
 

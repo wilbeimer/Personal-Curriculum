@@ -151,6 +151,47 @@ body {
    line-height: 1.6;
    margin-top: 8px;
 }
+.course-textbook {
+   background: var(--bg-secondary);
+   border-radius: 10px;
+   padding: 20px 24px;
+   margin: 24px 0;
+}
+.course-textbook h2 {
+   font-size: 15px;
+   font-weight: 600;
+   margin-bottom: 12px;
+   color: var(--text-secondary);
+}
+.course-textbook ul {
+   list-style: none;
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+.course-textbook li {
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
+}
+.course-textbook a {
+   color: var(--accent);
+   font-size: 14px;
+   font-weight: 500;
+   text-decoration: none;
+}
+.course-textbook a:hover {
+   text-decoration: underline;
+}
+.course-textbook .author {
+   font-size: 12px;
+   color: var(--text-muted);
+}
+.course-textbook p {
+   font-size: 13px;
+   color: var(--text-secondary);
+   line-height: 1.5;
+}
 .assignment-list {
    list-style: none;
    display: flex;
